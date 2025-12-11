@@ -282,6 +282,7 @@ def update_mapa(cidade_selecionada, semana_selecionada):
     fig.update_layout(margin=dict(l=0, r=0, t=40, b=0), coloraxis_colorbar=dict(title="Probabilidade de Risco"))
     return fig
 
-# ---------------- RUN ----------------
 if __name__ == '__main__':
-    app.run(debug=True)
+    import os
+    port = int(os.environ.get("PORT", 8050))  # pega a porta do Render ou 8050 localmente
+    app.run(host="0.0.0.0", port=port, debug=True)
